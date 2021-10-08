@@ -1,0 +1,96 @@
+$fontFamily: 'Lato', helvetica, Arial, Sans-serif
+
+// Backgrounds
+$bodyBg: #f2f2f2
+$columnBg: #f5f5f5
+$taskCardBorder: #E0E1E2
+$backgroundColor: #CDCED0
+
+// Colors
+$black: #333
+
+
+body
+  background: white
+
+.board
+  display: flex
+  flex-wrap: nowrap
+  justify-content: space-around
+  //padding: 15px
+  height: 10px
+  //max-height: 100px
+  //min-width: 1000px
+  width: 80%
+  margin: 5px auto 50px auto
+  //margin: 50px auto
+  //align-content: stretch
+
+
+.TodoList
+  font-family: $fontFamily
+  margin: 5px auto 5px auto
+  .boardColumn-taskList
+    background: $columnBg
+    margin-left: 30px
+
+    //padding: 20px 10px
+    //min-height: 600px
+    height: 300px
+    //max-height: 600px
+    overflow-y: auto
+
+
+.boardColumn
+  font-family: $fontFamily
+  flex-basis: 300px
+  flex-grow: 1
+  margin: 0 5px
+
+  .boardColumn-header
+    padding: 5px
+    margin-bottom: 10px
+    border-bottom: 5px solid $columnBg
+  .boardColumn-title
+    text-transform: capitalize
+    color: $black
+    font-size: 14px
+    line-height: 1.5
+    font-weight: normal
+    margin: 0 5px 0 0
+    word-wrap: break-word
+  .boardColumn-taskList
+    background: $columnBg
+    padding: 20px 10px
+    //min-height: 600px
+    height: 300px
+    //max-height: 600px
+    overflow-y: auto
+
+.taskCard
+  font-family: $fontFamily
+  border: 2px solid $taskCardBorder
+  border-radius: 15px
+  padding: 15px 15px 10px 15px
+  background: white
+  position: relative
+  margin-bottom: 5px
+  box-shadow: 0px 3px 4px 0px rgba(0, 0, 0, 0.06)
+
+  .taskCard-profile
+    margin-left: -5px
+    width: 95%
+
+  .taskCard-image
+    border-radius: 30%
+    max-width: 25%
+
+  .taskCard-info
+    font-size: 11px
+    margin-left: 55px
+    margin-top: -55px
+    align-items: center
+
+  .label-value
+    color: #3c8bd0
+
