@@ -2,7 +2,13 @@ import React from 'react';
 import TodoCard from "../TodoCard/TodoCard";
 import {ITODO} from "../../types/types";
 
-const BoardColumn = ({title, todos, setStatusChange}: {title: string, todos: ITODO[], setStatusChange: any}) => {
+interface boardColumnProps {
+    title: string,
+    todos: ITODO[],
+    setStatusChange: any
+}
+
+const BoardColumn : React.FC<boardColumnProps> = ({title, todos, setStatusChange}) => {
     return (
         <div className="boardColumn">
             <header className="boardColumn-header"><h1 className="boardColumn-title">{ title }</h1></header>

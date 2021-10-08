@@ -2,10 +2,14 @@ import React from 'react';
 import CardActions from "@mui/material/CardActions";
 import Button from "@mui/material/Button";
 
-const ActionGroup = (
-    {disableDecline, disableApprove, declineTodo, approveTodo
-    }: { disableDecline: boolean, disableApprove: boolean, declineTodo: any, approveTodo: any
-    }) => {
+interface actionGroupProps {
+    disableDecline: boolean,
+    disableApprove: boolean,
+    declineTodo: any,
+    approveTodo: any
+}
+
+const ActionGroup : React.FC<actionGroupProps> = ({disableDecline, disableApprove, declineTodo, approveTodo}) => {
     return (
         <div>
             <hr/>

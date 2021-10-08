@@ -4,7 +4,12 @@ import BoardColumn from "../BoardColumn/BoardColumn";
 import {status} from "../../constants/status";
 import {ITODO} from "../../types/types";
 
-const Board = ({todos, setStatusChange}: {todos: ITODO[] , setStatusChange: any}) => {
+interface boardProps {
+    todos: ITODO[] ,
+    setStatusChange: any
+}
+
+const Board : React.FC<boardProps> = ({todos, setStatusChange}) => {
     return (
         <div className="board">
             <BoardColumn title = "TODO"  todos = { todos?.filter( (todo: ITODO )=> {return todo.status === status[0]})} setStatusChange={setStatusChange} />

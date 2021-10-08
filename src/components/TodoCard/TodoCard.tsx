@@ -12,6 +12,12 @@ import {status} from "../../constants/status";
 import ActionGroup from "../ActionGroup/ActionGroup";
 import {ITODO} from "../../types/types";
 
+interface todoCardProps {
+    todo: ITODO,
+    setStatusChange: any,
+    usage: string
+}
+
 const useStyles = makeStyles((theme) => ({
     card: {
         marginTop: "10px",
@@ -31,7 +37,7 @@ const useStyles = makeStyles((theme) => ({
     }
 }), { name: "MuiButtonBase-root" });
 
-const TodoCard = ({todo, setStatusChange, usage}: {todo: ITODO, setStatusChange: any, usage: string}) => {
+const TodoCard : React.FC<todoCardProps> = ({todo, setStatusChange, usage}) => {
     const styles = useStyles();
     const [disableApprove, setDisableApprove] = useState(false);
     const [disableDecline, setDisableDecline] = useState(false);

@@ -4,7 +4,12 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import {ITODO} from "../../types/types";
 
-const TodosList = ({todos, setStatusChange}: {todos: ITODO[], setStatusChange: any}) => {
+interface todosListProps {
+    todos: ITODO[],
+    setStatusChange: any
+}
+
+const TodosList  : React.FC<todosListProps> = ({todos, setStatusChange}) => {
     return (
         <div>
             <Card sx={{ maxWidth: 800 }} className="TodoList">
