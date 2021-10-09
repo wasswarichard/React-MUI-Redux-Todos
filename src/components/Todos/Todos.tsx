@@ -4,9 +4,11 @@ import Typography from '@material-ui/core/Typography';
 import TodosList from "../TodosList/TodosList";
 import axios from "axios";
 import config from "../../utils/config.json";
-import store from "../../state/store/store";
 import {todosAdded} from "../../state/actions/actions";
 import {makeStyles} from "@material-ui/core/styles";
+import store from "../../state/store/store";
+import {ITODO} from "../../types/types";
+
 
 const useStyles = makeStyles((theme) => ({
     heading1: {
@@ -19,22 +21,22 @@ const useStyles = makeStyles((theme) => ({
 
 const Todos = () => {
     const styles = useStyles();
-    const [todos , setTodos] = useState(null);
+    const [todos , setTodos] = useState<ITODO[]>([]);
     const [statusChange, setStatusChange] = useState({});
 
     useEffect(() => {
         axios.get(`${config.apiUrl}`)
             .then(response => {
-                response.data.map((todo : any) => todo.status = "TODO");
-                store.dispatch(todosAdded(response.data));
+                response.data.map((todo : ITODO) => todo.status = "TODO");
+                store.dispatch(todosAdded(response.data))
                 setTodos(response.data)
             });
 
     }, []);
 
     useEffect(() => {
-        const newTodos : any = store.getState();
-        setTodos(newTodos);
+        const newTodos : ITODO[] = store.getState().todos;
+        setTodos([...newTodos]);
     }, [statusChange])
 
     return (
