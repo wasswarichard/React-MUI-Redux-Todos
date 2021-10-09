@@ -1,4 +1,4 @@
-import React from 'react';
+import React  from 'react';
 import TodoCard from "../TodoCard/TodoCard";
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
@@ -6,7 +6,7 @@ import {ITODO} from "../../types/types";
 
 interface todosListProps {
     todos: ITODO[],
-    setStatusChange: () => {}
+    setStatusChange: (value: ITODO) => void,
 }
 
 const TodosList  : React.FC<todosListProps> = ({todos, setStatusChange}) => {

@@ -9,7 +9,6 @@ export interface IACTION {
 }
 
 export default function todosReducer(state: ITODO[] = initialState.todos , action: IACTION) {
-    console.log(action)
     switch (action.type) {
         case actions.TODOS_ADDED:
             return [...state, ...action.payload]

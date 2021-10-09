@@ -1,4 +1,4 @@
-
 export const initialState = {
-    todos: []
+    todos: [],
+    todo: {completed: false, id: 0, status: "", title: "", userId: 0}
 };

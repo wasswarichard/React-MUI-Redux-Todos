@@ -8,6 +8,7 @@ import {todosAdded} from "../../state/actions/actions";
 import {makeStyles} from "@material-ui/core/styles";
 import store from "../../state/store/store";
 import {ITODO} from "../../types/types";
+import {initialState} from "../../state/initialState";
 
 
 const useStyles = makeStyles((theme) => ({
@@ -21,8 +22,8 @@ const useStyles = makeStyles((theme) => ({
 
 const Todos = () => {
     const styles = useStyles();
-    const [todos , setTodos] = useState<ITODO[]>([]);
-    const [statusChange, setStatusChange] = useState({});
+    const [todos , setTodos] = useState<ITODO[]>(initialState.todos);
+    const [statusChange, setStatusChange] = useState<ITODO>(initialState.todo);
 
     useEffect(() => {
         axios.get(`${config.apiUrl}`)

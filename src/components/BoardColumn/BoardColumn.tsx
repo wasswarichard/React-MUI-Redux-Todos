@@ -5,7 +5,7 @@ import {ITODO} from "../../types/types";
 interface boardColumnProps {
     title: string,
     todos: ITODO[],
-    setStatusChange: () => {}
+    setStatusChange: (value: ITODO) => void,
 }
 
 const BoardColumn : React.FC<boardColumnProps> = ({title, todos, setStatusChange}) => {
