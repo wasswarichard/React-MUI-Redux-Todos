@@ -5,8 +5,8 @@ import Button from "@mui/material/Button";
 interface actionGroupProps {
     disableDecline: boolean,
     disableApprove: boolean,
-    declineTodo: any,
-    approveTodo: any
+    declineTodo: () => {},
+    approveTodo: () => {},
 }
 
 const ActionGroup : React.FC<actionGroupProps> = ({disableDecline, disableApprove, declineTodo, approveTodo}) => {

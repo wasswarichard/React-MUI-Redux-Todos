@@ -14,7 +14,7 @@ import {ITODO} from "../../types/types";
 
 interface todoCardProps {
     todo: ITODO,
-    setStatusChange: any,
+    setStatusChange: () => {},
     usage: string
 }
 

@@ -6,7 +6,7 @@ import {ITODO} from "../../types/types";
 
 interface todosListProps {
     todos: ITODO[],
-    setStatusChange: any
+    setStatusChange: () => {}
 }
 
 const TodosList  : React.FC<todosListProps> = ({todos, setStatusChange}) => {

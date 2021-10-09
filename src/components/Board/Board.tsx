@@ -6,7 +6,7 @@ import {ITODO} from "../../types/types";
 
 interface boardProps {
     todos: ITODO[] ,
-    setStatusChange: any
+    setStatusChange: () => {}
 }
 
 const Board : React.FC<boardProps> = ({todos, setStatusChange}) => {
