@@ -1,13 +1,16 @@
 import React, {useState, useEffect} from 'react';
-import Board from "../Board/Board";
 import Typography from '@material-ui/core/Typography';
 import TodosList from "../TodosList/TodosList";
 import axios from "axios";
-import config from "../../utils/config.json";
-import {todosAdded} from "../../state/actions/actions";
 import {makeStyles} from "@material-ui/core/styles";
-import store from "../../state/store/store";
+import { useSelector } from "react-redux"
+import { useDispatch } from "react-redux";
+import { actionCreators } from "../../state/index"
+import { bindActionCreators } from 'redux'
+import Board from "../Board/Board";
+import config from "../../utils/config.json";
 import {ITODO} from "../../types/types";
+import {RootState} from "../../state/reducer";
 
 
 const useStyles = makeStyles((theme) => ({
@@ -24,20 +27,24 @@ const Todos = () => {
     const [todos , setTodos] = useState<ITODO[]>([]);
     const [statusChange, setStatusChange] = useState<ITODO>({completed: false, id: 0, status: "", title: "", userId: 0});
 
+    const newTodos = useSelector((state: RootState) => state.todos);
+    const dispatch = useDispatch();
+    const { todosAdded }  = bindActionCreators(actionCreators, dispatch)
+    
     useEffect(() => {
         axios.get(`${config.apiUrl}`)
             .then(response => {
                 response.data.map((todo : ITODO) => todo.status = "TODO");
-                store.dispatch(todosAdded(response.data))
+                todosAdded(response.data)
                 setTodos(response.data)
             });
 
     }, []);
 
+
     useEffect(() => {
-        const newTodos : ITODO[] = store.getState().todos;
         setTodos([...newTodos]);
-    }, [statusChange])
+    }, [newTodos, statusChange])
 
     return (
         <div>

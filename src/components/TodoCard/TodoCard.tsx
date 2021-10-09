@@ -6,11 +6,12 @@ import Avatar from "@material-ui/core/Avatar";
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@mui/material/Card';
 import Typography from '@mui/material/Typography';
-import {todoApproved, todoDeclined} from "../../state/actions/actions";
-import store from "../../state/store/store";
 import {status} from "../../constants/status";
 import ActionGroup from "../ActionGroup/ActionGroup";
 import {ITODO} from "../../types/types";
+import {useDispatch} from "react-redux";
+import {bindActionCreators} from "redux";
+import {actionCreators} from "../../state";
 
 interface todoCardProps {
     todo: ITODO,
@@ -42,6 +43,9 @@ const TodoCard : React.FC<todoCardProps> = ({todo, setStatusChange, usage}) => {
     const [disableApprove, setDisableApprove] = useState(false);
     const [disableDecline, setDisableDecline] = useState(false);
 
+    const dispatch = useDispatch();
+    const { todoApproved, todoDeclined }  = bindActionCreators(actionCreators, dispatch)
+
     useEffect(() => {
         if (status.indexOf(todo.status) === 0) {setDisableDecline(true)}
         if (status.indexOf(todo.status) === 2) { setDisableApprove(true)}
@@ -49,12 +53,13 @@ const TodoCard : React.FC<todoCardProps> = ({todo, setStatusChange, usage}) => {
 
     const declineTodo = (event : React.MouseEvent<HTMLButtonElement>) => {
         event.preventDefault();
-        store.dispatch(todoDeclined({...todo}));
+        todoDeclined({...todo});
         setStatusChange({...todo})
     }
+
     const approveTodo = (event : React.MouseEvent<HTMLButtonElement>) => {
         event.preventDefault();
-        store.dispatch(todoApproved({...todo}))
+        todoApproved({...todo})
         setStatusChange({...todo})
     }
 
