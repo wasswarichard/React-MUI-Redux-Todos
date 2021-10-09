@@ -3,11 +3,11 @@ import { status } from "../../constants/status";
 import { ITODO } from "../../types/types";
 
 export interface IACTION {
-    payload: ITODO[],
+    payload:  ITODO & ITODO[],
     type: string
 }
 
-export default function reducer(state: ITODO[] , action: any) {
+export default function reducer(state: ITODO[] , action: IACTION) {
     switch (action.type) {
         case actions.TODOS_ADDED:
             return [...state, ...action.payload]

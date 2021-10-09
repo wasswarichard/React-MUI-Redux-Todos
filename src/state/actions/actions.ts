@@ -11,7 +11,7 @@ export const todoDeclined = (description: IDESCRIPTION) => ({
     payload: description
 })
 
-export const todosAdded = (description: ITODO ) => ({
+export const todosAdded = (description: ITODO[] ) => ({
     type: actions.TODOS_ADDED,
     payload: description
 
