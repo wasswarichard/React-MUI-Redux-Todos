@@ -1,1 +1,1 @@
-export const status = ["TODO", "IN_PROGRESS", "DONE"]
+export const status = ['TODO', 'IN_PROGRESS', 'DONE'];

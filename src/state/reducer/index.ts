@@ -1,9 +1,9 @@
-import { combineReducers } from "redux";
-import todos from "./todosReducer";
+import { combineReducers } from 'redux';
+import todos from './todosReducer';
 
 const rootReducer = combineReducers({
-    todos
+  todos,
 });
 export default rootReducer;
 
-export type RootState = ReturnType<typeof rootReducer>
+export type RootState = ReturnType<typeof rootReducer>;
