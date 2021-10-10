@@ -1,0 +1,81 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Todos> should match snapshot 1`] = `
+<div>
+  <h5
+    className="MuiTypography-root MuiButtonBase-root-heading1 MuiTypography-h5 MuiTypography-gutterBottom"
+  >
+    Tickets List
+  </h5>
+  <div>
+    <div
+      className="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root TodoList css-1nieira-MuiPaper-root-MuiCard-root"
+    >
+      <div
+        className="MuiCardContent-root css-46bh2p-MuiCardContent-root"
+      >
+        <div
+          className="boardColumn-taskList"
+        />
+      </div>
+    </div>
+  </div>
+  <h5
+    className="MuiTypography-root MuiButtonBase-root-heading2 MuiTypography-h5 MuiTypography-gutterBottom"
+  >
+    Board
+  </h5>
+  <div
+    className="board"
+  >
+    <div
+      className="boardColumn"
+    >
+      <header
+        className="boardColumn-header"
+      >
+        <h1
+          className="boardColumn-title"
+        >
+          TODO
+        </h1>
+      </header>
+      <div
+        className="boardColumn-taskList"
+      />
+    </div>
+    <div
+      className="boardColumn"
+    >
+      <header
+        className="boardColumn-header"
+      >
+        <h1
+          className="boardColumn-title"
+        >
+          IN_PROGRESS
+        </h1>
+      </header>
+      <div
+        className="boardColumn-taskList"
+      />
+    </div>
+    <div
+      className="boardColumn"
+    >
+      <header
+        className="boardColumn-header"
+      >
+        <h1
+          className="boardColumn-title"
+        >
+          DONE
+        </h1>
+      </header>
+      <div
+        className="boardColumn-taskList"
+      />
+    </div>
+  </div>
+</div>
+`;

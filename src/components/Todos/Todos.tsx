@@ -40,7 +40,7 @@ const Todos = () => {
   const { todosAdded } = bindActionCreators(actionCreators, dispatch);
 
   useEffect(() => {
-    axios.get(`${config.apiUrl}`).then((response) => {
+    axios.get<ITODO[]>(`${config.apiUrl}`).then((response) => {
       response.data.map((todo: ITODO) => (todo.status = 'TODO'));
       todosAdded(response.data);
       setTodos(response.data);
@@ -48,7 +48,7 @@ const Todos = () => {
   }, []);
 
   useEffect(() => {
-    setTodos([...newTodos]);
+    setTodos(newTodos);
   }, [newTodos, statusChange]);
 
   return (
