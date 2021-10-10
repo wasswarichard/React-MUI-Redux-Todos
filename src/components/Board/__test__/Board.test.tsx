@@ -5,7 +5,6 @@ import { cleanup } from '@testing-library/react';
 import Adapter from 'enzyme-adapter-react-16';
 import TestRenderer from 'react-test-renderer';
 import { Provider } from 'react-redux';
-import BoardColumn from '../../BoardColumn/BoardColumn';
 import configureStore from 'redux-mock-store';
 Enzyme.configure({ adapter: new Adapter() });
 
