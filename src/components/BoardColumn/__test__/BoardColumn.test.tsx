@@ -22,11 +22,7 @@ describe('<BoardColumn>', () => {
     store = mockStore(todoElements);
     render(
       <Provider store={store}>
-        <BoardColumn
-          title="DONE"
-          todos={todoElements}
-          setStatusChange={statusChange}
-        />
+        <BoardColumn title="DONE" todos={todoElements} setStatusChange={statusChange} />
       </Provider>
     );
   });
@@ -35,11 +31,7 @@ describe('<BoardColumn>', () => {
     store = mockStore(todoElements);
     const tree = TestRenderer.create(
       <Provider store={store}>
-        <BoardColumn
-          title="DONE"
-          todos={todoElements}
-          setStatusChange={statusChange}
-        />
+        <BoardColumn title="DONE" todos={todoElements} setStatusChange={statusChange} />
       </Provider>
     ).toJSON();
     expect(tree).toMatchSnapshot();

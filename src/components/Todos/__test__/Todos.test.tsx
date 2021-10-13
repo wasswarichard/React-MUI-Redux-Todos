@@ -11,9 +11,7 @@ Enzyme.configure({ adapter: new Adapter() });
 
 describe('<Todos>', () => {
   afterEach(cleanup);
-  const todos = [
-    { userId: 1, id: 1, title: 'DONE', completed: true, status: 'DONE' },
-  ];
+  const todos = [{ userId: 1, id: 1, title: 'DONE', completed: true, status: 'DONE' }];
   const mockStore = configureStore();
   let store;
 

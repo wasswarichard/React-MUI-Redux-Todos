@@ -8,11 +8,7 @@ interface boardColumnProps {
   setStatusChange: (value: ITODO) => void;
 }
 
-const BoardColumn: React.FC<boardColumnProps> = ({
-  title,
-  todos,
-  setStatusChange,
-}) => {
+const BoardColumn: React.FC<boardColumnProps> = ({ title, todos, setStatusChange }) => {
   return (
     <div className="boardColumn">
       <header className="boardColumn-header">
@@ -21,14 +17,7 @@ const BoardColumn: React.FC<boardColumnProps> = ({
       <div className="boardColumn-taskList">
         {todos &&
           todos.map((todo: any) => {
-            return (
-              <TodoCard
-                key={todo.id}
-                todo={todo}
-                setStatusChange={setStatusChange}
-                usage="board"
-              />
-            );
+            return <TodoCard key={todo.id} todo={todo} setStatusChange={setStatusChange} usage="board" />;
           })}
       </div>
     </div>

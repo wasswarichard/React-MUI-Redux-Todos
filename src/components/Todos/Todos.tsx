@@ -11,6 +11,7 @@ import Board from '../Board/Board';
 import config from '../../utils/config.json';
 import { ITODO } from '../../interface/types';
 import { RootState } from '../../state/reducer';
+import { todoService } from '../../services/todos';
 
 const useStyles = makeStyles(
   (theme) => ({
@@ -42,8 +43,9 @@ const Todos = () => {
   useEffect(() => {
     axios.get<ITODO[]>(`${config.apiUrl}`).then((response) => {
       response.data.map((todo: ITODO) => (todo.status = 'TODO'));
-      todosAdded(response.data);
-      setTodos(response.data);
+      const formattedTodos = todoService.sortTodos(response.data);
+      todosAdded(formattedTodos);
+      setTodos(formattedTodos);
     });
   }, []);
 

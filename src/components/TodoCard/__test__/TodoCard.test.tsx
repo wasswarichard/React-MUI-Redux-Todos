@@ -27,11 +27,7 @@ describe('<TodoCard>', () => {
     store = mockStore(todoElement);
     render(
       <Provider store={store}>
-        <TodoCard
-          todo={todoElement}
-          usage="board"
-          setStatusChange={statusFunction}
-        />
+        <TodoCard todo={todoElement} usage="board" setStatusChange={statusFunction} />
       </Provider>
     );
   });
@@ -40,11 +36,7 @@ describe('<TodoCard>', () => {
     store = mockStore(todoElement);
     const tree = TestRenderer.create(
       <Provider store={store}>
-        <TodoCard
-          todo={todoElement}
-          usage="board"
-          setStatusChange={statusFunction}
-        />
+        <TodoCard todo={todoElement} usage="board" setStatusChange={statusFunction} />
       </Provider>
     ).toJSON();
     expect(tree).toMatchSnapshot();

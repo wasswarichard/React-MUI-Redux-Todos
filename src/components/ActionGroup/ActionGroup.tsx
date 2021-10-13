@@ -9,12 +9,7 @@ interface actionGroupProps {
   approveTodo: (event: React.MouseEvent<HTMLButtonElement>) => void;
 }
 
-const ActionGroup: React.FC<actionGroupProps> = ({
-  disableDecline,
-  disableApprove,
-  declineTodo,
-  approveTodo,
-}) => {
+const ActionGroup: React.FC<actionGroupProps> = ({ disableDecline, disableApprove, declineTodo, approveTodo }) => {
   return (
     <div>
       <hr />

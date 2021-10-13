@@ -17,14 +17,7 @@ const TodosList: React.FC<todosListProps> = ({ todos, setStatusChange }) => {
           <div className="boardColumn-taskList">
             {todos.length > 0 &&
               todos.map((todo: ITODO) => {
-                return (
-                  <TodoCard
-                    key={todo.id}
-                    todo={todo}
-                    setStatusChange={setStatusChange}
-                    usage="listTodos"
-                  />
-                );
+                return <TodoCard key={todo.id} todo={todo} setStatusChange={setStatusChange} usage="listTodos" />;
               })}
           </div>
         </CardContent>

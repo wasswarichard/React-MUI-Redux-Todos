@@ -41,26 +41,19 @@ const useStyles = makeStyles(
   { name: 'MuiButtonBase-root' }
 );
 
-const TodoCard: React.FC<todoCardProps> = ({
-  todo,
-  setStatusChange,
-  usage,
-}) => {
+const TodoCard: React.FC<todoCardProps> = ({ todo, setStatusChange, usage }) => {
   const styles = useStyles();
   const [disableApprove, setDisableApprove] = useState(false);
   const [disableDecline, setDisableDecline] = useState(false);
 
   const dispatch = useDispatch();
-  const { todoApproved, todoDeclined } = bindActionCreators(
-    actionCreators,
-    dispatch
-  );
+  const { todoApproved, todoDeclined } = bindActionCreators(actionCreators, dispatch);
 
   useEffect(() => {
     if (status.indexOf(todo.status) === 0) {
       setDisableDecline(true);
     }
-    if (status.indexOf(todo.status) === 2) {
+    if (status.indexOf(todo.status) === status.length -1) {
       setDisableApprove(true);
     }
   }, [todo.status]);
@@ -79,17 +72,11 @@ const TodoCard: React.FC<todoCardProps> = ({
 
   return (
     <Card sx={{ minWidth: 40 }} className={styles.card}>
-      <Avatar
-        className={styles.avatar}
-        src={profilePicture}
-        alt="profile picture"
-      />
+      <Avatar className={styles.avatar} src={profilePicture} alt="profile picture" />
       <div className={styles.content}>
         <Typography>
           {todo.id}. <span>{todo.title}</span>
-          {usage === 'listTodos' && (
-            <span style={{ marginLeft: '80px' }}>{todo.status}</span>
-          )}
+          {usage === 'listTodos' && <span style={{ marginLeft: '80px' }}>{todo.status}</span>}
         </Typography>
       </div>
       {usage === 'board' && (
