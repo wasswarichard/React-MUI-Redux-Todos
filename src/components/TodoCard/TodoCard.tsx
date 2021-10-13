@@ -53,7 +53,7 @@ const TodoCard: React.FC<todoCardProps> = ({ todo, setStatusChange, usage }) => 
     if (status.indexOf(todo.status) === 0) {
       setDisableDecline(true);
     }
-    if (status.indexOf(todo.status) === status.length -1) {
+    if (status.indexOf(todo.status) === status.length - 1) {
       setDisableApprove(true);
     }
   }, [todo.status]);

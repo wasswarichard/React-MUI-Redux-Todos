@@ -11,7 +11,7 @@ const sortTodos = (todos: ITODO[]) => {
   return formattedTodos.reverse();
 };
 
-const approveTodo = ({ state, action }: { state: any; action: IACTION }) => {
+const approveTodo = ({ state, action }: { state: ITODO[]; action: IACTION }) => {
   const statusIndex = status.findIndex((element: string) => element === action.payload.status);
   const todoIndex = state.findIndex((element: { id: number }) => element.id === action.payload.id);
   state[todoIndex] = {
@@ -21,7 +21,7 @@ const approveTodo = ({ state, action }: { state: any; action: IACTION }) => {
   return sortTodos(state);
 };
 
-const declineTodo = ({ state, action }: { state: any; action: IACTION }) => {
+const declineTodo = ({ state, action }: { state: ITODO[]; action: IACTION }) => {
   const declinedStatusIndex = status.findIndex((element: string) => element === action.payload.status);
   const declinedTodoIndex = state.findIndex((element: { id: number }) => element.id === action.payload.id);
   state[declinedTodoIndex] = {
