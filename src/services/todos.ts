@@ -12,11 +12,11 @@ const sortTodos = (todos: ITODO[]) => {
 };
 
 const approveTodo = ({ state, action }: { state: ITODO[]; action: IACTION }) => {
-  const statusIndex = status.findIndex((element: string) => element === action.payload.status);
-  const todoIndex = state.findIndex((element: { id: number }) => element.id === action.payload.id);
-  state[todoIndex] = {
-    ...state[todoIndex],
-    status: status[statusIndex + 1],
+  const approvedStatusIndex = status.findIndex((element: string) => element === action.payload.status);
+  const approvedTodoIndex = state.findIndex((element: { id: number }) => element.id === action.payload.id);
+  state[approvedTodoIndex] = {
+    ...state[approvedTodoIndex],
+    status: status[approvedStatusIndex + 1],
   };
   return sortTodos(state);
 };
